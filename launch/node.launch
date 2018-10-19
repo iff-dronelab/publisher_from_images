@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="node_name" default="publisher_from_images_node"/>
+    <arg name="output" default="screen"/>
+    <arg name="image_topic" default="/image_raw"/>   
+    <arg name="geoimage_topic" default="/geo_image_manta"/>   
+    <arg name="image_path" default="/home/user/test"/>   
+    <arg name="lFreq" default="1"/>
+    <arg name="altitude" default="-1000"/>
+    <arg name="heading" default="-1000"/>
+
+    <!-- Node -->
+    <node pkg="publisher_from_images" type="publisher_from_images_node" name="$(arg node_name)" output="$(arg output)">
+    	    <param name="image_topic" type="string" value="$(arg image_topic)"/>
+            <param name="geoimage_topic" type="string" value="$(arg geoimage_topic)"/>
+    	    <param name="image_path" type="string" value="$(arg image_path)"/>
+            <param name="lFreq" type="double" value="$(arg lFreq)"/>
+            <param name="altitude" type="double" value="$(arg altitude)"/>
+            <param name="heading" type="double" value="$(arg heading)"/>
+    </node>
+
+</launch>
